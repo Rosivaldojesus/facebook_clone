@@ -1,0 +1,14 @@
+from django.contrib import admin
+from userauths.models import User, Profile
+
+# Register your models here.
+class UserCustomAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'username', 'email', 'gender']
+    
+class ProfileCustomAdmin(admin.ModelAdmin):
+    list_display = ['user','full_name', 'user', 'verified']
+    list_editable = ['verified']
+
+
+admin.site.register(User, UserCustomAdmin)
+admin.site.register(Profile, ProfileCustomAdmin)
